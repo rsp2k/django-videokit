@@ -18,6 +18,40 @@ Define MEDIA_ROOT and MEDIA_URL, example:
     MEDIA_ROOT = os.path.join(BASE_DIR, 'media-uploads')
     MEDIA_URL = '/media/'
 
+URLs
+----
+Add the media URL to your project's urls.py, example:
+
+.. code-block:: python
+    from django.conf import settings
+    from django.conf.urls import url
+    from django.conf.urls.static import static
+    from django.contrib import admin
+
+    urlpatterns = [
+        ...
+    ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+Celery
+------
+Configure celery by creating celery.py in your projects application folder, details can be found at: http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html , or see example below:
+
+.. code-block:: python
+    from __future__ import absolute_import, unicode_literals
+    import os
+    from celery import Celery
+
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'example.settings')
+
+    app = Celery('example')
+    app.config_from_object('django.conf:settings', namespace='CELERY')
+    app.autodiscover_tasks()
+    app.conf.broker_url = 'redis://localhost:6379/0'
+
+    @app.task(bind=True)
+    def debug_task(self):
+        print('Request: {0!r}'.format(self.request))
+    
 VideoField
 ----------
 VideoField is a class very similar in nature to Django's out of the box ImageField. It allows you to upload a video file, retrieve video file properties, and generate thumbnails.
