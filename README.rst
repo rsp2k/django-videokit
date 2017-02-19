@@ -4,7 +4,7 @@ Installation
 1. Install ffmpeg
 2. Install mediainfo
 3. Install celery
-4. Install django-videokit 'pip install -e git+https://github.com/pstreck/django-videokit.git#egg=django-videokit'
+4. Install django-videokit 'pip install django-videokit'
 5. Add 'videokit' to your INSTALLED_APPS
 
 Usage Overview
