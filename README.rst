@@ -9,6 +9,13 @@ Installation
 
 Usage Overview
 ==============
+Settings
+--------
+Define MEDIA_ROOT and MEDIA_URL, example:
+
+.. code-block:: python
+    MEDIA_ROOT = os.path.join(BASE_DIR, 'media-uploads')
+    MEDIA_URL = '/media/'
 
 VideoField
 ----------
