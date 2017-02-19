@@ -23,6 +23,7 @@ URLs
 Add the media URL to your project's urls.py, example:
 
 .. code-block:: python
+
     from django.conf import settings
     from django.conf.urls import url
     from django.conf.urls.static import static
@@ -37,6 +38,7 @@ Celery
 Configure celery by creating celery.py in your projects application folder, details can be found at: http://docs.celeryproject.org/en/latest/django/first-steps-with-django.html , or see example below:
 
 .. code-block:: python
+
     from __future__ import absolute_import, unicode_literals
     import os
     from celery import Celery
