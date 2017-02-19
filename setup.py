@@ -41,5 +41,5 @@ setup(
     # What does your project relate to?
     keywords='django video development',
 
-    packages=find_packages(exclude=['tests']),
+    packages=find_packages(exclude=['tests', 'example']),
 )

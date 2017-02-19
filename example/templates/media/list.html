@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div>
+        <a href="{% url 'item_create' %}">create media item</a>
+    </div>
+    <div>
+        {% for item in media_items %}
+            {% if item.video_mp4.generated and item.video_ogg.generated %}
+                <div>
+                    <video controls preload="auto">
+                        <source src="{{ item.video_mp4.url }}" type="video/mp4">
+                        <source src="{{ item.video_ogg.url }}" type="video/ogg">
+                    </video>
+                    <hr>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
