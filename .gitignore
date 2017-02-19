@@ -91,3 +91,6 @@ videokit-env/
 
 # Django DB
 db.sqlite3
+
+# vi swp files
+*.swp

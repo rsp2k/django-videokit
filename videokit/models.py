@@ -230,15 +230,15 @@ class VideoSpecField(VideoField):
 
     def __init__(   self, verbose_name = None, name = None,
                     source = None,
-                    format = VideokitConfig.VIDEOKIT_DEFAULT_FORMAT,
+                    format = None,
                     storage = None,
                     video_cache_backend = None,
                     **kwargs):
         self.source = source
-        self.format = format
+        self.format = format or VideokitConfig.VIDEOKIT_DEFAULT_FORMAT
         self.storage = storage or default_storage
         self.video_cache_backend = video_cache_backend or get_videokit_cache_backend()
-        
+
         kwargs.pop('blank', None)
         kwargs.pop('null', None)
 
